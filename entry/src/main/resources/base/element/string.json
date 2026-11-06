@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "ArkUI visual drag and drop builder"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "ArkUI Builder main ability"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "ArkUI Builder"
+    }
+  ]
+}

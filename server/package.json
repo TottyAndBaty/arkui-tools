@@ -1,0 +1,13 @@
+{
+  "name": "arkui-builder-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI 组件树生成服务：OpenAI 兼容接口 + 内置中文规则回退，同时托管 Web 版工具",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,44 @@
+# DevEco / hvigor 构建产物
+**/build/
+.hvigor/
+**/oh_modules/
+**/.preview/
+**/.test/
+**/.cxx/
+.appanalyzer/
+*.har
+
+# 注意：hvigor/hvigor-config.json5 是工程配置，必须提交；只有缓存目录 .hvigor/ 被忽略
+
+# Node AI 服务
+**/node_modules/
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# node scripts/pack-web.js 的静态包与它的临时目录
+dist/
+*.tmp-*/
+
+# 签名材料与密钥（README 7.1 / 7.2 生成，禁止入库）
+material/
+*.p12
+*.jks
+*.keystore
+*.cer
+*.p7b
+*.pem
+*.key
+.env
+.env.*
+*.env
+!.env.example
+local.properties
+
+# IDE 与系统文件
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini

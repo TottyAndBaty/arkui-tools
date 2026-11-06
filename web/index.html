@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ArkUI 拖放工具 · Web 版</title>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">A</span>
+    <div>
+      <h1>ArkUI 拖放工具</h1>
+      <p>拖拽组件搭建鸿蒙页面，实时生成 ArkTS 代码</p>
+    </div>
+  </div>
+
+  <form id="ai-form" class="ai-bar" autocomplete="off">
+    <input id="ai-prompt" type="text" placeholder="用自然语言描述页面，例如：生成一个登录页面，包含用户名、密码输入框和登录按钮">
+    <button id="ai-run" class="primary" type="submit">AI 生成</button>
+    <span id="ai-source" class="badge" title="上一次生成使用的通路">待生成</span>
+  </form>
+
+  <div class="topbar-actions">
+    <label class="toggle">
+      <input id="svc-toggle" type="checkbox" checked>
+      <span>调用本地服务</span>
+    </label>
+    <input id="svc-endpoint" class="endpoint" type="text" value="http://localhost:3000/api/generate" title="AI 服务地址">
+    <button id="btn-import" class="ghost" type="button">导入 JSON</button>
+    <button id="btn-export-json" class="ghost" type="button">导出 JSON</button>
+    <button id="btn-export-ets" class="primary" type="button">导出 .ets</button>
+  </div>
+</header>
+
+<main class="workspace">
+  <aside class="panel palette">
+    <h2>组件面板</h2>
+    <p class="hint">拖拽到中间画布；容器组件可接收子组件</p>
+    <div id="palette" class="palette-body"></div>
+  </aside>
+
+  <section class="canvas-wrap">
+    <div class="canvas-toolbar">
+      <span id="tree-summary" class="summary">画布为空</span>
+      <div class="tools">
+        <button data-action="delete" type="button">删除</button>
+        <button data-action="copy" type="button">复制</button>
+        <button data-action="paste" type="button">粘贴</button>
+        <button data-action="duplicate" type="button">克隆</button>
+        <button data-action="up" type="button">上移</button>
+        <button data-action="down" type="button">下移</button>
+        <button data-action="top" type="button">置顶</button>
+        <button data-action="bottom" type="button">置底</button>
+        <button data-action="clear" type="button" class="danger">清空</button>
+      </div>
+    </div>
+    <div id="canvas" class="canvas" data-drop="canvas">
+      <p class="empty-tip" id="empty-tip">从左侧拖入组件开始搭建页面</p>
+    </div>
+  </section>
+
+  <aside class="panel inspector">
+    <div class="tabs">
+      <button class="tab active" data-tab="property" type="button">属性配置</button>
+      <button class="tab" data-tab="code" type="button">代码预览</button>
+    </div>
+
+    <div id="tab-property" class="tab-body">
+      <p class="hint" id="property-empty">选中画布中的组件后在这里配置属性</p>
+      <div id="property-form" class="property-form hidden"></div>
+    </div>
+
+    <div id="tab-code" class="tab-body hidden">
+      <div class="code-actions">
+        <button id="btn-copy-code" class="ghost" type="button">复制代码</button>
+        <span id="code-note" class="note">生成的代码可直接粘贴到 DevEco Studio 的 pages/Index.ets</span>
+      </div>
+      <pre id="code-view" class="code-view"></pre>
+    </div>
+  </aside>
+</main>
+
+<script src="../shared/registry.js"></script>
+<script src="../shared/rules.js"></script>
+<script src="../shared/generator.js"></script>
+<script src="config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
